@@ -8,7 +8,7 @@ Según la página web https://es.javascript.info/indexeddb#:~:text=IndexedDB%20e
 
 Una de sus mejores ventajas es que el almacén se realiza mediante claves y valores. Esto hace las consultas y en general el trabajo con IndexedDB mucho más fácil y preciso, además de permitirnos almacenar una cantidad mucho mayor de datos que localStorage.
 
-#### ABRIR LA BASE DE DATOS
+### ABRIR LA BASE DE DATOS
 
 Para empezar a usar IndexedDB, el primer paso es abrir una base de datos. Para ello debemos usar "open" de la siguiente manera:
 ~~~
@@ -18,7 +18,7 @@ donde "name" es el nombre de la base de datos que queramos establecer y "version
 
 Controlamos una serie de eventos con "upgradeneeded" si la versión es anterior a una ya existente, "onsuccess" cuando todo está correctamente y "onerror" cuando ocurre algún error.
 
-#### USO DE INDEXEDDB
+### USO DE INDEXEDDB
 
 Para almacenar un dato en la base de datos usamos un almacén de objetos, lo que equivale a una tabla en otras bases de datos que hemos usado en el pasado. Podemos tener una tabla para cada distinción que queramos hacer: "clientes", "empleados", etc.
 
@@ -36,7 +36,7 @@ Un ejemplo de keyPath es:
 ~~~
 db.createObjectStore('books', {keyPath: 'id'});
 ~~~
-#### OPERACIONES
+### OPERACIONES
 
 Los resultados de todas las operaciones realizadas con IndexedDB están vinculados, por lo que deben de estar todas correctas, o fallarán todas. Esto es así para asegurar que no hay un problema mayor, por ejemplo:
 
@@ -92,7 +92,7 @@ Manejar errores y éxitos de la petición con error o success.
 
 Para almacenar un valor, podemos usar dos métodos. El que usamos anteriormente (".add(value, [key])") o .put, que igualmente debe añadirse con un valor, pero que la clave será obligatoria sólo cuando no se añada un keyPath o autoIncrement. En caso de tener añadir una clave que ya pertenece a otro valor, este valor será reemplazado por el nuevo, por eso hay que tener cuidado.
 
-#### BÚSQUEDAS/CONSULTAS
+### BÚSQUEDAS/CONSULTAS
 
 Podemos buscar y recibir un campo del objeto de la base de datos con un índice. Para obtener dicho índice y poder acceder al campo/objeto deseado, lo haremos con esta sintaxis:
 ~~~
@@ -124,7 +124,7 @@ let request = store.openCursor(query, [direction]);
 ~~~
 Donde query es una clave o rango de claves y directions es el orden que se va a usar, que puede ser "next" (predeterminado), "prev" (inverso) o "nextunique"/"prevunique", que salta registros con la misma clave en orden predeterminado o inverso.
 
-#### BORRAR ALMACÉN DE OBJETOS
+### BORRAR ALMACÉN DE OBJETOS
 
 Para borrar un almacén de objetos existente, usamos esta sintaxis:
 ~~~
@@ -132,7 +132,7 @@ db.deleteObjectStore("name")
 ~~~
 Donde name es el nombre de dicho almacén.
 
-#### CERRAR LA BASE DE DATOS
+### CERRAR LA BASE DE DATOS
 
 Por último, vamos a aprender a cerrar una base de datos existente, algo que es bastante simple. 
 
